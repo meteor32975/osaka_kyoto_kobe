@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>大阪・京都・神戶｜6天5夜｜住宿最終版</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6f8;color:#20242a;font-family:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.6}
+.wrap{max-width:1120px;margin:auto;padding:0 16px}header{background:linear-gradient(135deg,#17191d,#3a3e46);color:#fff;padding:35px 0}h1{margin:5px 0;font-size:30px}.sub{color:#d1d5db}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #e5e7eb;padding:8px;display:flex;gap:6px;overflow:auto}.tab{border:0;background:transparent;padding:9px 14px;border-radius:8px;font-weight:700;white-space:nowrap;cursor:pointer}.tab.active{background:#17191d;color:#fff}
+.panel{display:none;padding:24px 0 50px}.panel.active{display:block}.note{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:13px;margin-bottom:16px}
+.hotelgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.hotel{background:#fff;border:1px solid #e5e7eb;border-radius:15px;overflow:hidden;box-shadow:0 3px 12px #00000008}.photo-img,.photo{width:100%;height:235px;object-fit:cover;background:linear-gradient(135deg,#e5e7eb,#f8fafc);display:flex;align-items:center;justify-content:center;color:#6b7280;text-align:center}.photo span{padding:20px;font-weight:700}.body{padding:17px}.rank{display:inline-block;background:#fff0d4;color:#9a5b00;border-radius:99px;padding:2px 9px;font-size:12px;font-weight:800}h2{font-size:21px;margin:9px 0 4px}.room{font-size:14px;color:#374151}.price{font-size:20px;font-weight:900;margin-top:12px;color:#b45309}.price small{display:block;font-size:12px;color:#6b7280;font-weight:600}.tax{font-size:12px;color:#6b7280;margin:4px 0 10px}.meta{display:grid;grid-template-columns:1fr 1fr;gap:7px}.meta div{background:#f8fafc;border-radius:8px;padding:9px;font-size:13px}.meta .wide{grid-column:1/-1}.paid{color:#b45309;font-weight:800}.free{color:#15803d;font-weight:800}.btn{display:inline-block;background:#17191d;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:800;margin:10px 5px 0 0}
+.daygrid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.day{background:#fff;border:1px solid #e5e7eb;border-left:4px solid #d97706;border-radius:12px;padding:15px}.tag{font-size:12px;color:#9a5b00;font-weight:800}.checkgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.check{background:#fff;border:1px solid #e5e7eb;padding:12px;border-radius:9px}.check label{display:block}footer{color:#6b7280;text-align:center;font-size:12px;margin-top:25px}
+@media(max-width:760px){.hotelgrid,.daygrid,.checkgrid{grid-template-columns:1fr}.photo-img,.photo{height:220px}}
+</style>
+
+<style id="checkbox-ui-refresh">
+#packing .packing-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:18px;
+  margin-top:18px;
+}
+#packing .pack-card{
+  background:#fff;
+  border:1px solid #e7eaf0;
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 5px 18px rgba(30,40,60,.06);
+}
+#packing .pack-card h3{
+  margin:0 0 12px;
+  font-size:18px;
+  font-weight:750;
+  letter-spacing:.01em;
+}
+#packing .pack-item{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:48px;
+  margin:7px 0;
+  padding:10px 12px;
+  border:1px solid transparent;
+  border-radius:12px;
+  cursor:pointer;
+  user-select:none;
+  transition:background .18s ease,border-color .18s ease,box-shadow .18s ease,opacity .18s ease;
+}
+#packing .pack-item:hover{
+  background:#f7f8fb;
+  border-color:#e4e7ed;
+}
+#packing .pack-item input{
+  appearance:none;
+  -webkit-appearance:none;
+  width:22px;
+  height:22px;
+  flex:0 0 22px;
+  margin:0;
+  border:2px solid #b8bec9;
+  border-radius:7px;
+  background:#fff;
+  display:grid;
+  place-content:center;
+  cursor:pointer;
+  transition:all .18s ease;
+}
+#packing .pack-item input::before{
+  content:"";
+  width:10px;
+  height:10px;
+  transform:scale(0);
+  transition:transform .14s ease;
+  clip-path:polygon(14% 44%,0 59%,39% 100%,100% 21%,85% 8%,39% 71%);
+  background:#fff;
+}
+#packing .pack-item input:checked{
+  background:#222;
+  border-color:#222;
+  box-shadow:0 3px 8px rgba(0,0,0,.16);
+}
+#packing .pack-item input:checked::before{transform:scale(1)}
+#packing .pack-item:has(input:checked){
+  background:#f3f4f6;
+  border-color:#e1e3e8;
+  color:#7b808a;
+}
+#packing .pack-item:has(input:checked) span{
+  text-decoration:line-through;
+}
+#packing .pack-item:focus-within{
+  outline:3px solid rgba(80,100,140,.18);
+  outline-offset:2px;
+}
+@media (max-width:640px){
+  #packing .packing-grid{grid-template-columns:1fr;gap:12px}
+  #packing .pack-card{padding:14px;border-radius:15px}
+  #packing .pack-item{min-height:46px;margin:5px 0}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>大阪・京都・神戶｜6天5夜自由行</h1><div class="sub">2026/10/04–10/09｜2位成人｜住宿推薦改為指定4家</div></div></header>
+<nav><button class="tab active" data-tab="hotel">住宿推薦</button><button class="tab" data-tab="itinerary">每日行程</button><button class="tab" data-tab="transport">交通</button><button class="tab" data-tab="packing">行李清單</button></nav>
+<main class="wrap">
+<section id="hotel" class="panel active">
+<div class="note"><b>住宿比較順序：</b>價格 → 車站 → 行李寄放 → 早餐 → 取消政策 → 優點 → 缺點 → 機場巴士 → 房型／訂房。<br>
+<b>預算：</b>NT$3,500–5,000／晚；4家依你提供的5晚價格均低於預算。<br>
+<b>提醒：</b>R Hotel Namba East 的「房價＋稅金」與你提供的「總價」不一致，網頁已保留兩組數字並標註需以訂房結帳頁確認。</div>
+<div class="hotelgrid">
+<article class="hotel">
+<a href="https://www.marriott.com/en-gb/hotels/osaxi-city-express-osaka-shin-imamiya/photos/" target="_blank"><div class="photo"><span>📷 查看官方 Twin Room 房型照片</span></div></a>
+<div class="body">
+<span class="rank">🥇 最推薦</span>
+<h2>City Express by Marriott 大阪新今宮</h2>
+<div class="room"><b>推薦房型：</b>客房, 2 張單人床, 城市景觀</div>
+<div class="price">5晚 NT$12,882.31<small>約 NT$2,576／晚</small></div>
+<div class="tax">房價 NT$11,711.10＋稅金 NT$1,171.21</div>
+<div class="meta">
+<div><b>車站距離</b><br>新今宮站約 1 分鐘</div>
+<div><b>入住前／退房後寄放</b><br>入住前／退房後：建議向飯店確認寄放規則</div>
+<div class="wide"><b>早餐</b><br><span class="paid">付費；官方提供自助早餐</span></div>
+<div class="wide"><b>取消政策</b><br>2026/10/03 前可全額退款</div>
+<div class="wide"><b>優點</b><br>新今宮站、動物園前站都近；前往難波、天王寺方便；Twin 房適合兩人；有洗衣設備。</div>
+<div class="wide"><b>缺點</b><br>不在大阪站／梅田；若每天以京都、神戶為主，轉乘時間較長。</div>
+<div class="wide"><b>機場巴士</b><br>關西機場：建議南海電鐵至新今宮；機場巴士非飯店直達</div>
+</div>
+<a class="btn" href="https://www.marriott.com/en-us/hotels/osaxi-city-express-osaka-shin-imamiya/rooms/" target="_blank">房型／照片</a>
+<a class="btn" href="https://tw.hotels.com/ho670137/nan-nan-bo-fp-fan-dian-da-ban-ri-ben/?destination=%E5%A4%A7%E9%98%AA%2C%20%E5%A4%A7%E9%98%AA%E5%BA%9C%2C%20%E6%97%A5%E6%9C%AC&endDate=2026-10-09&latLong=34.693738%2C135.502165&location=City%20Express%20by%20Marriott%20%E5%A4%A7%E9%98%AA%E6%96%B0%E4%BB%8A%E5%AE%AE&regionId=2697&rm1=a2&startDate=2026-10-04&expediaPropertyId=17528261" target="_blank">訂房網址</a>
+</div></article>
+
+<article class="hotel">
+<img class="photo-img" src="https://r-hotel.jp/storage/hotel/20260203144242_69818ad27bc3e.jpg" alt="R Hotel Namba East 標準雙床房">
+<div class="body">
+<span class="rank">🥈 CP值推薦</span>
+<h2>R Hotel Namba East</h2>
+<div class="room"><b>推薦房型：</b>標準雙床房</div>
+<div class="price">你提供：5晚 NT$9,011.71<small>依你提供總價約 NT$1,802／晚</small></div>
+<div class="tax">你提供的房價 NT$11,711.10＋稅金 NT$890.50，兩者合計為 NT$12,601.60；與標示總價 NT$9,011.71 不一致，訂房前請以 Hotels.com 結帳頁為準。</div>
+<div class="meta">
+<div><b>車站距離</b><br>日本橋站約 7–8 分鐘；南海難波站約 10 分鐘</div>
+<div><b>入住前／退房後寄放</b><br>入住前／退房後當日可寄放；官方公告 09:00–21:00</div>
+<div class="wide"><b>早餐</b><br><span class="paid">不提供早餐</span></div>
+<div class="wide"><b>取消政策</b><br>2026/10/01 前可全額退款（依你提供方案）</div>
+<div class="wide"><b>優點</b><br>黑門市場約 3–5 分鐘；道頓堀、日本橋生活機能佳；房價低；雙床房適合閨密。</div>
+<div class="wide"><b>缺點</b><br>離大阪站較遠；無早餐；前往京都需先到難波／大阪市區轉乘。</div>
+<div class="wide"><b>機場巴士</b><br>關西機場：南海電鐵至難波後步行／轉乘；非機場巴士直達型飯店</div>
+</div>
+<a class="btn" href="https://r-hotel.jp/en/hotel/detail/47" target="_blank">房型／照片</a>
+<a class="btn" href="https://tw.hotels.com/ho4046740736/?destination=%E5%A4%A7%E9%98%AA%2C+%E5%A4%A7%E9%98%AA%E5%BA%9C%2C+%E6%97%A5%E6%9C%AC&endDate=2026-10-09&latLong=34.693738%2C135.502165&location=R+Hotel+Namba+East&regionId=2697&rm1=a2&startDate=2026-10-04&expediaPropertyId=126429398" target="_blank">訂房網址</a>
+</div></article>
+
+<article class="hotel">
+<a href="https://merbabustay.com/" target="_blank"><div class="photo"><span>📷 查看官方 Deluxe Twin 房型照片</span></div></a>
+<div class="body">
+<span class="rank">🥉 房間空間推薦</span>
+<h2>MERBABU STAY OSAKA 梅爾巴住宿大阪</h2>
+<div class="room"><b>推薦房型：</b>豪華雙床房, 非吸煙房</div>
+<div class="price">5晚 NT$11,324.74<small>約 NT$2,265／晚</small></div>
+<div class="tax">房價 NT$10,295.21＋稅金 NT$1,029.53</div>
+<div class="meta">
+<div><b>車站距離</b><br>本町站約 5 分鐘；堺筋本町站約 9 分鐘</div>
+<div><b>入住前／退房後寄放</b><br>免費；1F 行李櫃，需交通 IC 卡，9 個、先到先用</div>
+<div class="wide"><b>早餐</b><br><span class="paid">不提供早餐</span></div>
+<div class="wide"><b>取消政策</b><br>2026/10/02 前可全額退款</div>
+<div class="wide"><b>優點</b><br>約 30㎡；房內洗衣機、廚房、浴缸；100 吋投影；本町交通方便；行李寄放免費。</div>
+<div class="wide"><b>缺點</b><br>自助／智慧飯店型態；22:59 前須完成入住；不接受提前寄送行李。</div>
+<div class="wide"><b>機場巴士</b><br>無飯店直達機場巴士；可搭機場交通至大阪市區後轉 Osaka Metro</div>
+</div>
+<a class="btn" href="https://merbabustay.com/room/" target="_blank">房型／照片</a>
+<a class="btn" href="https://tw.hotels.com/ho3226931232/merbabu-stay-osaka-da-ban-ri-ben/?destination=%E5%A4%A7%E9%98%AA%2C+%E5%A4%A7%E9%98%AA%E5%BA%9C%2C+%E6%97%A5%E6%9C%AC&endDate=2026-10-09&latLong=34.693738%2C135.502165&location=%E5%A4%A7%E9%98%AA%2C+%E5%A4%A7%E9%98%AA%E5%BA%9C%2C+%E6%97%A5%E6%9C%AC&regionId=2697&rm1=a2&startDate=2026-10-04&expediaPropertyId=100810351" target="_blank">訂房網址</a>
+</div></article>
+
+<article class="hotel">
+<a href="https://www.centarahotelsresorts.com/" target="_blank"><div class="photo"><span>📷 查看官方房型／飯店照片</span></div></a>
+<div class="body">
+<span class="rank">4</span>
+<h2>Centara Life Namba Hotel Osaka 森塔拉生活難波飯店大阪</h2>
+<div class="room"><b>推薦房型：</b>豪華客房, 2 張單人床</div>
+<div class="price">5晚 NT$13,684.81<small>約 NT$2,737／晚</small></div>
+<div class="tax">房價 NT$11,309.68＋稅金 NT$2,375.13</div>
+<div class="meta">
+<div><b>車站距離</b><br>大國町站約 5 分鐘；今宮戎站約 3 分鐘</div>
+<div><b>入住前／退房後寄放</b><br>有行李寄放服務；費用以飯店當日規定為準</div>
+<div class="wide"><b>早餐</b><br><span class="paid">付費；提供 Continental／Asian／Buffet</span></div>
+<div class="wide"><b>取消政策</b><br>2026/10/01 前可全額退款</div>
+<div class="wide"><b>優點</b><br>新飯店、房間整潔；靠近大國町與今宮戎；難波、通天閣生活圈；早餐選擇完整。</div>
+<div class="wide"><b>缺點</b><br>距大阪站較遠；稅金占比高；前往京都、神戶需先往大阪／難波方向轉乘。</div>
+<div class="wide"><b>機場巴士</b><br>可先到難波，再轉乘／步行至飯店；機場巴士主要到難波</div>
+</div>
+<a class="btn" href="https://www.centarahotelsresorts.com/" target="_blank">房型／照片</a>
+<a class="btn" href="https://tw.hotels.com/ho3942994240/?regionId=2697&chkin=2026-10-04&chkout=2026-10-09&expediaPropertyId=123187320&useRewards=false&rm1=a2" target="_blank">訂房網址</a>
+</div></article>
+</div>
+</section>
+<section id="itinerary" class="panel"><div class="daygrid">
+<div class="day"><span class="tag">DAY 1｜10/04</span><h3>抵達大阪・住宿區</h3><p>關西機場 → 飯店寄放行李 → 難波／梅田購物與晚餐。</p></div>
+<div class="day"><span class="tag">DAY 2｜10/05</span><h3>京都・清水寺東山</h3><p>清水寺 → 二年坂・三年坂 → 八坂神社 → 祇園。</p></div>
+<div class="day"><span class="tag">DAY 3｜10/06</span><h3>大阪市區</h3><p>大阪城 → 黑門市場 → 心齋橋 → 道頓堀。</p></div>
+<div class="day"><span class="tag">DAY 4｜10/07</span><h3>神戶</h3><p>三宮 → 北野異人館 → 南京町 → Meriken Park → 港灣夜景。</p></div>
+<div class="day"><span class="tag">DAY 5｜10/08</span><h3>京都・伏見稻荷＋嵐山</h3><p>伏見稻荷大社 → 嵐山竹林 → 渡月橋。</p></div>
+<div class="day"><span class="tag">DAY 6｜10/09</span><h3>最後購物・機場</h3><p>退房 → 寄放行李 → 最後採買 → 取行李 → 機場。</p></div>
+</div></section>
+<section id="transport" class="panel"><div class="daygrid">
+<div class="day"><h3>✈️ 關西機場</h3><p>City Express：南海電鐵至新今宮最直接；難波區飯店可先到難波再步行／轉乘。</p></div>
+<div class="day"><h3>🚆 京都</h3><p>從難波／日本橋住宿可先至大阪梅田或大阪站，再依景點選JR／阪急。</p></div>
+<div class="day"><h3>🚆 神戶</h3><p>大阪站／梅田轉JR或阪急至三宮；若住宿在難波，可先回大阪站銜接。</p></div>
+<div class="day"><h3>🚇 大阪</h3><p>Osaka Metro＋IC卡最方便；本町、難波、日本橋、新今宮皆有地鐵／私鐵選擇。</p></div>
+</div></section>
+<section id="packing" class="panel"><div class="packing-grid"><div class="pack-card"><h3>💄 化妝包</h3><label class="pack-item"><input type="checkbox"> <span>洗面乳</span></label><label class="pack-item"><input type="checkbox"> <span>化妝水</span></label><label class="pack-item"><input type="checkbox"> <span>粉底液／粉餅</span></label><label class="pack-item"><input type="checkbox"> <span>深層卸妝棉</span></label><label class="pack-item"><input type="checkbox"> <span>牙刷／牙膏</span></label><label class="pack-item"><input type="checkbox"> <span>牙線棒</span></label><label class="pack-item"><input type="checkbox"> <span>棉花棒</span></label><label class="pack-item"><input type="checkbox"> <span>髮帶</span></label><label class="pack-item"><input type="checkbox"> <span>乳液</span></label><label class="pack-item"><input type="checkbox"> <span>護唇膏</span></label><label class="pack-item"><input type="checkbox"> <span>護手霜</span></label></div><div class="pack-card"><h3>🎒 背包</h3><label class="pack-item"><input type="checkbox"> <span>口罩</span></label><label class="pack-item"><input type="checkbox"> <span>抽取式衛生紙</span></label><label class="pack-item"><input type="checkbox"> <span>濕紙巾／酒精（抗菌）濕紙巾</span></label><label class="pack-item"><input type="checkbox"> <span>梳子</span></label><label class="pack-item"><input type="checkbox"> <span>吸油面紙</span></label><label class="pack-item"><input type="checkbox"> <span>個人藥品／藥膏</span></label><label class="pack-item"><input type="checkbox"> <span>帽子</span></label><label class="pack-item"><input type="checkbox"> <span>礦泉水空瓶</span></label><label class="pack-item"><input type="checkbox"> <span>購物袋</span></label><label class="pack-item"><input type="checkbox"> <span>雨傘</span></label><label class="pack-item"><input type="checkbox"> <span>行動電源</span></label></div><div class="pack-card"><h3>🧳 行李箱</h3><label class="pack-item"><input type="checkbox"> <span>洗澡巾</span></label><label class="pack-item"><input type="checkbox"> <span>毛巾</span></label><label class="pack-item"><input type="checkbox"> <span>擦髮巾</span></label><label class="pack-item"><input type="checkbox"> <span>睡衣褲 ×1</span></label><label class="pack-item"><input type="checkbox"> <span>內衣褲 ×5</span></label><label class="pack-item"><input type="checkbox"> <span>上衣 ×5</span></label><label class="pack-item"><input type="checkbox"> <span>長褲 ×2</span></label><label class="pack-item"><input type="checkbox"> <span>厚／薄外套（防風／輕羽絨）</span></label><label class="pack-item"><input type="checkbox"> <span>襪子 ×5</span></label><label class="pack-item"><input type="checkbox"> <span>洗髮精</span></label><label class="pack-item"><input type="checkbox"> <span>沐浴乳</span></label><label class="pack-item"><input type="checkbox"> <span>衛生棉／護墊</span></label><label class="pack-item"><input type="checkbox"> <span>抽取式衛生紙</span></label><label class="pack-item"><input type="checkbox"> <span>購物袋</span></label><label class="pack-item"><input type="checkbox"> <span>充電線／頭</span></label><label class="pack-item"><input type="checkbox"> <span>行李袋</span></label></div><div class="pack-card"><h3>📱 手機</h3><label class="pack-item"><input type="checkbox"> <span>護照照片</span></label><label class="pack-item"><input type="checkbox"> <span>身分證照片</span></label><label class="pack-item"><input type="checkbox"> <span>健保卡照片</span></label><label class="pack-item"><input type="checkbox"> <span>預辦登機（線上）</span></label><label class="pack-item"><input type="checkbox"> <span>飯店訂房資訊</span></label><label class="pack-item"><input type="checkbox"> <span>入境資料（線上）</span></label><label class="pack-item"><input type="checkbox"> <span>日本網卡</span></label></div><div class="pack-card"><h3>👛 錢包</h3><label class="pack-item"><input type="checkbox"> <span>護照</span></label><label class="pack-item"><input type="checkbox"> <span>台幣</span></label><label class="pack-item"><input type="checkbox"> <span>日幣</span></label><label class="pack-item"><input type="checkbox"> <span>信用卡</span></label><label class="pack-item"><input type="checkbox"> <span>西瓜卡</span></label><label class="pack-item"><input type="checkbox"> <span>機票（來回）</span></label><label class="pack-item"><input type="checkbox"> <span>統聯車票</span></label></div></div></section>
+<footer>大阪・京都・神戶｜住宿資料依你提供的2026/10/04–10/09訂房方案整理</footer>
+</main>
+<script>
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active')})
+</script>
+
+<script id="packing-checkbox-script">
+document.addEventListener('DOMContentLoaded', function(){
+  const section=document.querySelector('#packing');
+  if(!section) return;
+  const boxes=[...section.querySelectorAll('.pack-item input[type="checkbox"]')];
+  const progress=document.querySelector('#packing-progress');
+  function update(){
+    const done=boxes.filter(b=>b.checked).length;
+    if(progress) progress.textContent=`已完成 ${done} / ${boxes.length}`;
+  }
+  boxes.forEach((box,i)=>{
+    const key='travel-packing-'+i;
+    try{box.checked=localStorage.getItem(key)==='1'}catch(e){}
+    box.addEventListener('change',()=>{
+      try{localStorage.setItem(key,box.checked?'1':'0')}catch(e){}
+      update();
+    });
+  });
+  update();
+});
+</script>
+</body></html>
